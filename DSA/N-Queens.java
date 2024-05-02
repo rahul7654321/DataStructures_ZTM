@@ -57,7 +57,7 @@ class look {
   public static void main(String[] args) {
     Scanner in = new Scanner(System.in);
 
-    n = in.nextInt();
+    n = in.nextInt(); // IF static int is defined at top int shloud be removed here 
 
     int[][] mat = new int[n][n];
 
