@@ -56,3 +56,6 @@ public class Main {
         in.close();
     }
 }
+//in this program inpusts are 1 2 3 4 5 -1
+//where the output will be the 5 4 3 2 1 
+//becasue it insert very new node at the begining of the link like the stack 
