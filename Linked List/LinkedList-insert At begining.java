@@ -1,86 +1,72 @@
 // "static void main" must be defined in a public class.
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
+
 public class Main {
 
-    class node
+    class Node
     {
         int data;
-        node next;
+        Node next;
 
-        node(int data)
+        Node(int data)
         {
-            this.data = data; // refers to the global value
+            this.data = data;
         }
-
     }
-    node h;//head
-    node t;//temp
+
+    Node head;
+    Node Temp;
+
     void ins(int data)
     {
-        node nn = new node(data);
+        Node nn = new Node(data);
 
-        if(h==null)
+        if(head==null)
         {
-            h = nn; //insert at the begining
-
+          head = nn;
+          Temp = nn;
         }
-        else
+      else
         {
-            t = h ;
-            while(t.next!=null)
-            {
-                if(nn.data == t.data)                
-                    return;               
-
-                t = t.next;                
-            }   
-            if(t.data!=data){
-            t.next = nn;
-            t = nn;
-            }
-
+          Temp.next = nn;
+          Temp = nn;
         }
-
+          
     }
 
     void dis()
     {
-        t = h;
-        while(t!=null)
+        Temp = head;
+
+        while(Temp!=null)
         {
-            System.out.print(t.data);
-            t = t.next;
+            System.out.println(Temp.data);
+            Temp = Temp.next;
         }
-
-
     }
+
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
 
-        Main m = new Main();
+       Scanner in = new Scanner(System.in);
+       Main m = new Main();
+       // int n = in.nextInt();
 
-        int n ; 
-
-        while(true)
+      while(true)
         {
-            n = in.nextInt();
-            if(n==-1)
-            {
-                break;
-            }
-
-                m.ins(n);
-
+          int n = in.nextInt();
+          if(n==-1)
+          {
+            break;
+          }
+          m.ins(n);
         }
 
-        m.dis();
-
-
-
-
-
+       m.dis();
+        in.close();
     }
 }
+
 
 //inputs should be 1 2 3 4 5 -1
 
